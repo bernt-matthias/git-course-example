@@ -5,6 +5,6 @@
     stage: check
     script:
       - apt-get update
-      - apt-get install spell
+      - apt-get install -y spell
       - find . -name "*.txt" | xargs spell -no
 
