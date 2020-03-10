@@ -1,12 +1,12 @@
-  stages:
-    - check
-  
-  check:
-    stage: check
-    script:
-      - apt-get update
-      - apt-get install -y spell
-      - find . -name "*.txt" | xargs spell -no > spell.result
-      - cat spell.result
-      - lines=$(cat spell.result|wc -l); if [[ $lines -ne 0 ]]; then exit 1; fi
+stages:
+  - spellcheck
+
+spellcheck:
+  stage: spellcheck
+  script:
+    - apt-get update
+    - apt-get install -y spell
+    - find . -name "*.txt" | xargs spell -no > spell.result
+    - cat spell.result
+    - lines=$(cat spell.result|wc -l); if [[ $lines -ne 0 ]]; then exit 1; fi
 
