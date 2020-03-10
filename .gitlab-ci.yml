@@ -1,0 +1,8 @@
+  stages:
+    - check
+  
+  check:
+    stage: check
+    script:
+      - fd '\.sh$' | parallel shellcheck -x --color=always
+      - fd '\.yml$' | rg -v '/vault.yml$' | parallel yamllint -f colored
