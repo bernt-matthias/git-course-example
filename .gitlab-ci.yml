@@ -8,5 +8,5 @@
       - apt-get install -y spell
       - find . -name "*.txt" | xargs spell -no > spell.result
       - cat spell.result
-      - if [[ "$(wc -l spell.result)" -gt "0" ]]; then exit 1; fi
+      - lines=$(cat spell.result); if [[ $lines -ne 0 ]]; then exit 1; fi
 
