@@ -4,6 +4,7 @@
   check:
     stage: check
     script:
+      - apt-get update
       - apt-get install spell
       - find . -name "*.txt" | xargs spell -no
 
